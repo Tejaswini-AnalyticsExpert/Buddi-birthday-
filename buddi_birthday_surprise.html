@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Buddi ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; justify-content:center; align-items:center;
+  background:radial-gradient(circle at top,#3b1027,#120813 65%);
+  color:white; font-family:Georgia,serif; overflow:hidden;
+}
+.card{
+  width:min(92%,520px); padding:38px 24px; text-align:center;
+  background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18);
+  border-radius:28px; box-shadow:0 20px 70px rgba(0,0,0,.5); backdrop-filter:blur(12px);
+}
+h1{font-size:34px;margin:8px 0 12px}
+p{font-size:17px;line-height:1.7;color:#f4dfe9}
+input{
+  width:100%; padding:15px; border:0; border-radius:14px; margin:18px 0 10px;
+  text-align:center; font-size:17px; outline:none;
+}
+button{
+  border:0; border-radius:14px; padding:14px 25px; font-size:16px;
+  background:#fff;color:#6d173f; font-weight:bold; cursor:pointer;
+}
+#error{color:#ffb6cf;min-height:24px}
+#surprise{display:none}
+.heart{font-size:48px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.12)}}
+video{width:100%;border-radius:18px;margin:18px 0}
+.message{font-size:19px;line-height:1.8}
+.small{font-size:13px;color:#d7b9c7}
+</style>
+</head>
+<body>
+
+<div class="card" id="lock">
+  <div class="heart">❤️</div>
+  <h1>Something special for you, Buddi...</h1>
+  <p>This little surprise is made only for<br><b>Pavan Kumar</b> 💕</p>
+  <p>There is a secret code. Enter it to unlock your birthday surprise 🔐</p>
+
+  <input id="code" type="password" placeholder="Enter secret code">
+  <button onclick="unlock()">Unlock My Surprise ✨</button>
+  <div id="error"></div>
+  <div class="small">A little secret from someone who loves you ❤️</div>
+</div>
+
+<div class="card" id="surprise">
+  <div class="heart">💖</div>
+  <h1>Happy Birthday, Buddi! 🎂</h1>
+
+  <!-- Replace birthday-video.mp4 with your video file name -->
+  <video controls playsinline poster="cover.jpg">
+    <source src="birthday-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="message">
+    <p>To my Pavan Kumar ❤️</p>
+    <p>
+      You are not just my love, you are one of the most beautiful parts
+      of my life. Every memory with you is something I want to keep forever. 🥹❤️
+    </p>
+    <p>
+      May this birthday bring you everything your heart wishes for.
+      Keep smiling, keep shining, and always remember how special you are to me.
+    </p>
+    <p><b>Happy Birthday, Buddi! ❤️</b></p>
+    <p>Forever yours. 💕</p>
+  </div>
+</div>
+
+<script>
+function unlock(){
+  const entered = document.getElementById("code").value.trim().toUpperCase();
+  const secret = "BUDDI2026";
+  if(entered === secret){
+    document.getElementById("lock").style.display="none";
+    document.getElementById("surprise").style.display="block";
+    document.body.style.overflow="auto";
+  } else {
+    document.getElementById("error").textContent="Hmm... that's not the secret code ❤️ Try again!";
+  }
+}
+document.getElementById("code").addEventListener("keydown",e=>{
+  if(e.key==="Enter") unlock();
+});
+</script>
+
+</body>
+</html>
